@@ -102,10 +102,11 @@ class _MapViewState extends State<MapView> {
         markerId: MarkerId(startCoordinatesString),
         position: LatLng(startLatitude, startLongitude),
         infoWindow: InfoWindow(
-          title: 'Start $startCoordinatesString',
+          title: 'Você está aqui',
           snippet: _startAddress,
         ),
-        icon: BitmapDescriptor.defaultMarker,
+        icon: await BitmapDescriptor.fromAssetImage(
+            ImageConfiguration(size: Size(10, 10)), 'assets/cliente.png'),
       );
 
       // Destination Location Marker
@@ -113,10 +114,11 @@ class _MapViewState extends State<MapView> {
         markerId: MarkerId(destinationCoordinatesString),
         position: LatLng(destinationLatitude, destinationLongitude),
         infoWindow: InfoWindow(
-          title: 'Destination $destinationCoordinatesString',
+          title: 'Salão Charmosa',
           snippet: _destinationAddress,
         ),
-        icon: BitmapDescriptor.defaultMarker,
+        icon: await BitmapDescriptor.fromAssetImage(
+            ImageConfiguration(size: Size(10, 10)), 'assets/salao.png'),
       );
 
       // Adding the markers to the list
