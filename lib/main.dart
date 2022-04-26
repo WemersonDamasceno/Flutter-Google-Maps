@@ -251,8 +251,12 @@ class _MapViewState extends State<MapView> {
                 zoomGesturesEnabled: true,
                 zoomControlsEnabled: false,
                 polylines: Set<Polyline>.of(polylines.values),
-                onMapCreated: (GoogleMapController controller) {
+                onMapCreated: (GoogleMapController controller) async {
                   mapController = controller;
+                  // var style = await rootBundle.loadString(
+                  //   'assets/map/map_light.json',
+                  // );
+                  //mapController.setMapStyle(style);
                   getLocation();
                 },
               ),
